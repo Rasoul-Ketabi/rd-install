@@ -409,8 +409,9 @@ post_custom(){
 	wget -O /var/www/bigbluebutton-default/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/images/logo.png https://getreddot.com/logo.png
-	wget -O /var/www/bigbluebutton-default/assets/images/favicon.ico https://getreddot.com/lobby/favicon.ico
+	wget -O /var/www/bigbluebutton-default/assets/favicon.ico https://getreddot.com/lobby/favicon.ico
 	wget -O /usr/share/bigbluebutton/blank/default.pdf https://getreddot.com/default.pdf
+	wget -O /var/www/bigbluebutton-default/assets/default.pdf https://getreddot.com/default.pdf
 
 	return 0;
 }

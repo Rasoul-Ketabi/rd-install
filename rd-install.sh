@@ -391,6 +391,8 @@ main() {
     install_greenlight_v3
   fi
 
+  post_custom	
+	
   bbb-conf --check
 }
 
@@ -405,7 +407,7 @@ post_custom(){
 	sed -i 's|^defaultWelcomeMessage=.*|defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>This session, and server is powered by Reddot by Persisca.<br><br><a href="https://persisca.com/studio/reddot-by-persisca" target="_blank">Click here to learn all about Reddot.</a>|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 	sed -i 's|^defaultWelcomeMessageFooter=.*|defaultWelcomeMessageFooter=This server is running Reddot.|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 
-
+	return 0;
 }
 
 say() {

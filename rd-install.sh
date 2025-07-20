@@ -406,11 +406,15 @@ post_custom(){
 	sed -i 's|helpLink:.*|helpLink: https://getreddot.com/|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
 	sed -i 's|^defaultWelcomeMessage=.*|defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>This session, and server is powered by Reddot by Persisca.<br><br><a href="https://persisca.com/studio/reddot-by-persisca" target="_blank">Click here to learn all about Reddot.</a>|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 	sed -i 's|^defaultWelcomeMessageFooter=.*|defaultWelcomeMessageFooter=This server is running Reddot.|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+	sed -i 's|^useDefaultLogo=.*|useDefaultLogo=true|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+	sed -i 's|^defaultLogoURL=.*|defaultLogoURL=https://getreddot.com/images/logo.png|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+	sed -i 's|^defaultDarkLogoURL=.*|defaultDarkLogoURL=https://getreddot.com/images/darklogo.png|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+	sed -i 's|^beans.presentationService.defaultUploadedPresentation=.*|beans.presentationService.defaultUploadedPresentation=https://getreddot.com/default.pdf|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 	wget -O /var/www/bigbluebutton-default/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/images/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/favicon.ico https://getreddot.com/lobby/favicon.ico
-	wget -O /usr/share/bigbluebutton/blank/default.pdf https://getreddot.com/default.pdf
+	wget -O /usr/share/bigbluebutton/blank/blank-presentation.pdf https://getreddot.com/default.pdf
 	wget -O /var/www/bigbluebutton-default/assets/default.pdf https://getreddot.com/default.pdf
 
 	return 0;

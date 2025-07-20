@@ -394,6 +394,20 @@ main() {
   bbb-conf --check
 }
 
+
+post_custom(){
+	echo "Changing FreeSWITCH listen-ip to 127.0.0.1..."
+	sed -i 's|<param name="listen-ip" value="::"/>|<param name="listen-ip" value="127.0.0.1"/>|' /opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
+	sed -i 's|clientTitle:.*|clientTitle: Reddot by Persisca|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
+	sed -i 's|appName:.*|appName: Reddot by Persisca|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
+	sed -i "s|copyright:.*|copyright: '©2025 Persisca Technologies.'|" /usr/share/bigbluebutton/html5-client/private/config/settings.yml
+	sed -i 's|helpLink:.*|helpLink: https://getreddot.com/|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
+	sed -i 's|^defaultWelcomeMessage=.*|defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>This session, and server is powered by Reddot by Persisca.<br><br><a href="https://persisca.com/studio/reddot-by-persisca" target="_blank">Click here to learn all about Reddot.</a>|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+	sed -i 's|^defaultWelcomeMessageFooter=.*|defaultWelcomeMessageFooter=This server is running Reddot.|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+
+
+}
+
 say() {
   echo "bbb-install: $1"
 }

@@ -22,10 +22,10 @@ The full source code for the installation scripts can be found [here](https://gi
 So, to install the latest iteration of BigBlueButton 3.0 on a new 64-bit Ubuntu 22.04 server with a public IP address, a hostname (such as `bbb.example.com`) that resolves to the public IP address, and an email address (such as `info@example.com`), log into your new server via SSH and run the following command as root.
 
 ~~~
-wget -qO- https://raw.githubusercontent.com/bigbluebutton/bbb-install/v3.0.x-release/bbb-install.sh | bash -s -- -w -v jammy-300 -s bbb.example.com -e info@example.com
+wget -qO- https://raw.githubusercontent.com/Rasoul-Ketabi/rd-install/v3.0.x-release/rd-install.sh | bash -s -- -w -v jammy-300 -s bbb.example.com -e info@example.com
 ~~~
 
-This command pulls down the latest version of `bbb-install.sh` from BigBlueButton 3.0 branch , sends it to the Bash shell interpreter, and installs BigBlueButton using the parameters provided:
+This command pulls down the latest version of `rd-install.sh` from BigBlueButton 3.0 branch , sends it to the Bash shell interpreter, and installs BigBlueButton using the parameters provided:
 
   * `-w` installs the uncomplicated firewall (UFW) to restrict access to TCP/IP ports 22, 80, and 443, and UDP ports in range 16384-32768.
   * `-v jammy-300` installs the latest iteration of BigBlueButton 3.0.x .

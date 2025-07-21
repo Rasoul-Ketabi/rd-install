@@ -396,6 +396,8 @@ main() {
   post_custom	
 	
   bbb-conf --check
+  
+  bbb-conf --secret
 }
 
 open_ports_ufw(){

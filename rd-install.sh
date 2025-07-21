@@ -408,6 +408,11 @@ open_ports_ufw(){
 	sudo ufw allow 7443/tcp
 	sudo ufw allow 8085/tcp
 	sudo ufw allow 8021/tcp
+	sudo ufw allow 6379/tcp
+	sudo ufw allow 5349/tcp
+	sudo ufw allow 5066/tcp
+	sudo ufw allow 3478/tcp
+	sudo ufw allow 3487/udp
 	sudo ufw allow 16384:32768/udp
 
 	return 0;

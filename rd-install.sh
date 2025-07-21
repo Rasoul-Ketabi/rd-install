@@ -130,6 +130,8 @@ main() {
   printf '\n' > "$CR_TMPFILE"
 
   need_x64
+  
+  open_ports_ufw
 
   while builtin getopts "hs:r:c:v:e:p:m:t:xgadwjik" opt "${@}"; do
 
@@ -396,7 +398,17 @@ main() {
   bbb-conf --check
 }
 
+open_ports_ufw(){
+	sudo ufw enable
+	sudo ufw allow 22/tcp
+	sudo ufw allow 80/tcp
+	sudo ufw allow 443/tcp
+	sudo ufw allow 7443/tcp
+	sudo ufw allow 16384:32768/udp
 
+	return 0;
+
+}
 post_custom(){
 	echo "Changing FreeSWITCH listen-ip to 127.0.0.1..."
 	sed -i 's|<param name="listen-ip" value="::"/>|<param name="listen-ip" value="127.0.0.1"/>|' /opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
@@ -416,6 +428,8 @@ post_custom(){
 	wget -O /var/www/bigbluebutton-default/assets/favicon.ico https://getreddot.com/lobby/favicon.ico
 	wget -O /usr/share/bigbluebutton/blank/blank-presentation.pdf https://getreddot.com/default.pdf
 	wget -O /var/www/bigbluebutton-default/assets/default.pdf https://getreddot.com/default.pdf
+	sudo mv /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml_
+	sudo mv /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml_
 
 	return 0;
 }

@@ -432,7 +432,12 @@ post_custom(){
 	sed -i 's|^defaultLogoURL=.*|defaultLogoURL=https://getreddot.com/images/logo.png|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 	sed -i 's|^defaultDarkLogoURL=.*|defaultDarkLogoURL=https://getreddot.com/images/darklogo.png|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
 	sed -i 's|^beans.presentationService.defaultUploadedPresentation=.*|beans.presentationService.defaultUploadedPresentation=https://getreddot.com/default.pdf|' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
-	echo "Applying Reddot brand replacements to HTML5 client..."
+	
+	sed -i 's|clientTitle:.*|clientTitle: Reddot by Persisca|' /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+	sed -i 's|appName:.*|appName: Reddot by Persisca|' /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+	sed -i "s|copyright:.*|copyright: '©2025 Persisca Technologies.'|" /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+	sed -i 's|helpLink:.*|helpLink: https://getreddot.com/|' /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+	echo "Applying Reddot brand replacements to HTML5 client... V3"
 	sed -i 's|"app.navBar.optionsDropdown.openAppLabel": "Open in BigBlueButton Tablet app"|"app.navBar.optionsDropdown.openAppLabel": "Open in Reddot Tablet app"|' /usr/share/bigbluebutton/html5-client/locales/en.json
 	sed -i 's|"app.about.version_label": "BigBlueButton version:"|"app.about.version_label": "Reddot version:"|' /usr/share/bigbluebutton/html5-client/locales/en.json
 	sed -i 's|"app.mobileAppModal.title": "Open BigBlueButton Tablet app"|"app.mobileAppModal.title": "Open Reddot Tablet app"|' /usr/share/bigbluebutton/html5-client/locales/en.json
@@ -442,6 +447,16 @@ post_custom(){
 	sed -i 's|"app.feedback.textarea": "How can we make BigBlueButton better\?"|"app.feedback.textarea": "How can we make Reddot better?"|' /usr/share/bigbluebutton/html5-client/locales/en.json
 	sed -i 's|"app.learningDashboard.bigbluebuttonTitle": "BigBlueButton"|"app.learningDashboard.bigbluebuttonTitle": "Reddot"|' /usr/share/bigbluebutton/html5-client/locales/en.json
 	sed -i 's|"mobileApp.portals.fields.name.placeholder": "BigBlueButton demo"|"mobileApp.portals.fields.name.placeholder": "Reddot demo"|' /usr/share/bigbluebutton/html5-client/locales/en.json
+	echo "Applying Reddot brand replacements to HTML5 client... V2.7"
+	sed -i 's|"app.navBar.settingsDropdown.openAppLabel": "Open in BigBlueButton Tablet app"|"app.navBar.settingsDropdown.openAppLabel": "Open in Reddot Tablet app"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.about.version_label": "BigBlueButton version:"|"app.about.version_label": "Reddot version:"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.mobileAppModal.title": "Open BigBlueButton Tablet app"|"app.mobileAppModal.title": "Open Reddot Tablet app"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.mobileAppModal.description": "Do you have the BigBlueButton Tablet app installed on your device\?"|"app.mobileAppModal.description": "Do you have the Reddot Tablet app installed on your device\?"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.guest.windowTitle": "BigBlueButton - Guest Lobby"|"app.guest.windowTitle": "Reddot - Guest Lobby"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i "s|\"app.feedback.subtitle\": \"We'd love to hear about your experience with BigBlueButton (optional)\"|\"app.feedback.subtitle\": \"We'd love to hear about your experience with Reddot (optional)\"|" /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.feedback.textarea": "How can we make BigBlueButton better\?"|"app.feedback.textarea": "How can we make Reddot better?"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"app.learningDashboard.bigbluebuttonTitle": "BigBlueButton"|"app.learningDashboard.bigbluebuttonTitle": "Reddot"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
+	sed -i 's|"mobileApp.portals.fields.name.placeholder": "BigBlueButton demo"|"mobileApp.portals.fields.name.placeholder": "Reddot demo"|' /usr/share/meteor/bundle/programs/web.browser/app/locales/en.json
 
 	wget -O /var/www/bigbluebutton-default/logo.png https://getreddot.com/logo.png
 	wget -O /var/www/bigbluebutton-default/assets/logo.png https://getreddot.com/logo.png

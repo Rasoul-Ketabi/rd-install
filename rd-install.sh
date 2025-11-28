@@ -132,6 +132,7 @@ main() {
   need_x64
   
   open_ports_ufw
+  add_enus
 
   while builtin getopts "hs:r:c:v:e:p:m:t:xgadwjik" opt "${@}"; do
 
@@ -417,8 +418,16 @@ open_ports_ufw(){
 	sudo ufw allow 16384:32768/udp
 
 	return 0;
-
 }
+
+add_enus(){
+	sudo apt-get install -y language-pack-en
+	sudo update-locale LANG=en_US.UTF-8
+	sudo systemctl set-environment LANG=en_US.UTF-8
+
+	return 0;
+}
+
 post_custom(){
 	echo "Changing FreeSWITCH listen-ip to 127.0.0.1..."
 	sed -i 's|<param name="listen-ip" value="::"/>|<param name="listen-ip" value="127.0.0.1"/>|' /opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
@@ -466,6 +475,8 @@ post_custom(){
 	wget -O /var/www/bigbluebutton-default/assets/default.pdf https://getreddot.com/default.pdf
 	sudo mv /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/internal-ipv6.xml_
 	sudo mv /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml_
+	
+	sudo bbb-conf --secret
 
 	return 0;
 }

@@ -131,6 +131,7 @@ main() {
 
   need_x64
   
+  apt update
   open_ports_ufw
   add_enus
 

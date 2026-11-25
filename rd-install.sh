@@ -433,6 +433,7 @@ post_custom(){
 	echo "Changing FreeSWITCH listen-ip to 127.0.0.1..."
 	sed -i 's|<param name="listen-ip" value="::"/>|<param name="listen-ip" value="127.0.0.1"/>|' /opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
 	sed -i 's|clientTitle:.*|clientTitle: Reddot by Persisca|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
+	sed -i 's|<title>BigBlueButton</title>|<title>Reddot</title>|g' /usr/share/bigbluebutton/html5-client/index.html
 	sed -i 's|appName:.*|appName: Reddot by Persisca|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
 	sed -i "s|copyright:.*|copyright: '©2025 Persisca Technologies.'|" /usr/share/bigbluebutton/html5-client/private/config/settings.yml
 	sed -i 's|helpLink:.*|helpLink: https://getreddot.com/|' /usr/share/bigbluebutton/html5-client/private/config/settings.yml
